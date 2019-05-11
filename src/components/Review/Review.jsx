@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Tooltip } from '@material-ui/core';
 import { withRouter } from 'react-router';
+import axios from 'axios';
+
 
 export class Review extends Component {
 
@@ -9,7 +11,16 @@ export class Review extends Component {
 // on click of submit, go to success page
     submitFeedback = () => {
         console.log('in submitFeedback');
-        this.props.history.push('/success')
+        axios({
+            method: 'POST',
+            url: `/feedback`,
+            data: this.props.reduxState.feedBack
+        }).then((response) => {
+            console.log('in POST request with: ', response);
+            this.props.history.push('/success')
+        }).catch((error) => {
+            console.log('error in POST request', error);
+        })
     }
 
     

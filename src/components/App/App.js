@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
+//import axios from 'axios';
+
 // import {Button} from '@material-ui/core';
 
 //Redux stuff
@@ -33,14 +34,14 @@ class App extends Component {
       <div className="App">
        <HashRouter>
         <header className="App-header">
-         <ul>
+         {/* <ul>
            <li><Link to='/'>Feelings</Link></li>
            <li><Link to='/understandingIn'>Understanding</Link></li>
            <li><Link to='/supportIn'>Support</Link></li>
            <li><Link to='/commentsIn'>Comments</Link></li>
            <li><Link to='/review'>Review</Link></li>
            <li><Link to='/success'>ThankYou</Link></li>
-         </ul>
+         </ul> */}
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
         </header>
