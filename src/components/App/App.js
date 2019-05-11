@@ -52,7 +52,7 @@ class App extends Component {
         <Route path='/commentsIn' component={ Comments } />
         <Route path='/review' component={ Review }/>
         <Route path='/success' component={ Success } />
-        <Review />
+        {/* <Review /> */}
         
        </HashRouter>
       </div>
