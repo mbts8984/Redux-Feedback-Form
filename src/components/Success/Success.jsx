@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
+import { withRouter } from 'react-router';
+
 
 export class Success extends Component {
 
@@ -32,4 +34,4 @@ const mapStateToProps = (reduxState) => {
     }
 }
 
-export default connect(mapStateToProps)(Success)
+export default withRouter(connect(mapStateToProps)(Success));

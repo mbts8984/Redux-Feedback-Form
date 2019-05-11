@@ -1,19 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from '@material-ui/core';
+// import { Button } from '@material-ui/core';
 import Review from '../Review/Review.jsx';
 
 export class Comments extends Component {
     
     state = {
-        comments: ''
+        comments: '',
+       // isFilled: false
     }
     //handle change for comments input
     handleChangeFor = property => event => {
+        console.log('in handleChange in Comments');
         this.setState({
-            [property]: event.target.value
+            comments: event.target.value
         })
+        this.handleCommentsSubmit();
     } //end handleChangeFor
+
+
+    // checkIfComplete = () => {
+    //     if (!this.props.feedback.comments || !this.props.feedback.feelings || !this.props.feedback.understanding || !this.props.feedback.support) {
+    //         this.setState({
+    //             isFilled: false
+    //         })
+    //     }
+    //     else {
+    //         this.setState({
+    //             isFilled: true
+    //         })
+
+    //     }
+    //     console.log('checkIfComplete', this.state.isFilled)
+    // };
+
 
 
     // handle submit. prevents reload of page logs click and comments value, dispatches state to redux.
@@ -34,10 +54,9 @@ export class Comments extends Component {
                 <h2>Any Comments You Want To Leave?</h2>
                 <br />
                 <h5>Comments?</h5>
-                <form onSubmit={this.handleCommentsSubmit}>
-                    <input type="text" placeholder="Comments" onChange={this.handleChangeFor('comments')}></input>
-                    <Button type="submit" variant="contained" color="primary">Back To Feelings</Button>
-                </form>
+                    <input type="text" placeholder="Comments" onChange={this.handleChangeFor}></input>
+                    {/* <Button type="submit" variant="contained" color="primary">Review Feedback</Button> */}
+                
                 <Review />
             </div>
         )
