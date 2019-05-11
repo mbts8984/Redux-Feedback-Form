@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
-
+import Review from '../Review/Review.jsx';
 
 export class Understanding extends Component {
    
@@ -35,8 +35,9 @@ export class Understanding extends Component {
                 <h5>Understanding?</h5>
                 <form onSubmit={this.handleUnderstandingSubmit}>
                     <input type="number" placeholder="1-5" onChange={this.handleChangeFor}></input>
-                    <Button type="submit" variant="contained" color="primary">Submit</Button>
+                    <Button type="submit" variant="contained" color="primary">Next</Button>
                 </form>
+            <Review />
             </div>
         )
     }
