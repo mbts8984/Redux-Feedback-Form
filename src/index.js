@@ -13,6 +13,9 @@ import { Provider } from 'react-redux';
 
 // Feedback reducer. Being called from each step in the feedback form
 const feedbackReducer = (state={}, action) => {
+   if (action.type === `SET_FEELINGS`){
+       console.log('made it to feedback reducer in setfeelings')
+   }
     return state;
 }
 
