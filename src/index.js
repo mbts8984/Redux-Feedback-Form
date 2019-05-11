@@ -10,12 +10,14 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
      const feedback = {
-            feelings: 0,
-            understanding: 0,
-            support: 0,
+            feelings: '',
+            understanding: '',
+            support: '',
             comments: ''
         }
     
+      
+        
 // Feedback reducer. Being called from each step in the feedback form
 const feedbackReducer = (state = feedback, action) => {
     switch (action.type) {
