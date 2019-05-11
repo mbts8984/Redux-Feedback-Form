@@ -28,11 +28,20 @@ const feedbackReducer = (state={}, action) => {
        return [state, action.payload]
     }
    else if (action.type === `SET_UNDERSTANDING`) {
-       console.log('made it to fdbkrdcr in understanding');
+       console.log('made it to feedbackReducer in understanding');
        return [state, action.payload]
-   }  
-       
+   }
+   else if (action.type === `SET_SUPPORT`){
+       console.log('made it to feedbackReducer in support');
+       return [state, action.payload]
+   }
+   else if (action.type === `SET_COMMENTS`) {
+        console.log('made it to feedbackReducer in comments');
+        return [state, action.payload]
+   } 
+   else{  
     return state;
+   }
 }
 
 // create store and add middleware
