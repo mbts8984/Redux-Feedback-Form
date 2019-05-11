@@ -10,10 +10,16 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
 
+
+// Feedback reducer. Being called from each step in the feedback form
+const feedbackReducer = (state={}, action) => {
+    return state;
+}
+
 // create store and add middleware
 const storeInstance = createStore(
     combineReducers({
-        
+        feedbackReducer
     }),
     applyMiddleware(logger),
 );
