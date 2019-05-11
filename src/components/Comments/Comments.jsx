@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 export class Comments extends Component {
     render() {
-        return <p>TEST4</p>
+        return <p>COMMENTS HERE</p>
     }
 
 }

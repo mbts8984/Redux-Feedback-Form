@@ -19,14 +19,14 @@ import Review from '../Review/Review.jsx';
 class App extends Component {
 
   // State to hold feedback before passing to DB
-  state = {
-    feedback: {
-      feelings: '',
-      understanding: '',
-      support: '',
-      comments: ''
-    }
-  }
+  // state = {
+  //   feedback: {
+  //     feelings: '',
+  //     understanding: '',
+  //     support: '',
+  //     comments: ''
+  //   }
+  // }
 
   render() {
     return (
