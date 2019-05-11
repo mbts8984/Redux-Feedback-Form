@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
@@ -9,40 +9,42 @@ import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
-
-class Index extends Component {
-    state = {
-        feedback: {
-            feelings: '',
-            understanding: '',
-            support: '',
+     const feedback = {
+            feelings: 0,
+            understanding: 0,
+            support: 0,
             comments: ''
         }
+    
+// Feedback reducer. Being called from each step in the feedback form
+const feedbackReducer = (state = feedback, action) => {
+    switch (action.type) {
+        case `SET_FEELINGS`:
+            return {
+                ...state,
+                feelings: action.payload
+            };
+        case `SET_UNDERSTANDING`:
+            return {
+                ...state,
+                understanding: action.payload
+            };
+        case `SET_SUPPORT`:
+            return {
+                ...state,
+                support: action.payload
+            };
+        case `SET_COMMENTS`:
+            return {
+                ...state,
+                comments: action.payload
+            };
+        default:
+            return state;
     }
 }
 
-// Feedback reducer. Being called from each step in the feedback form
-const feedbackReducer = (state={}, action) => {
-   if (action.type === `SET_FEELINGS`){
-       console.log('made it to feedback reducer in setfeelings');
-       return [state, action.payload]
-    }
-   else if (action.type === `SET_UNDERSTANDING`) {
-       console.log('made it to feedbackReducer in understanding');
-       return [state, action.payload]
-   }
-   else if (action.type === `SET_SUPPORT`){
-       console.log('made it to feedbackReducer in support');
-       return [state, action.payload]
-   }
-   else if (action.type === `SET_COMMENTS`) {
-        console.log('made it to feedbackReducer in comments');
-        return [state, action.payload]
-   } 
-   else{  
-    return state;
-   }
-}
+
 
 // create store and add middleware
 const storeInstance = createStore(
@@ -52,7 +54,7 @@ const storeInstance = createStore(
     applyMiddleware(logger),
 );
 
-export default Index;
+//export default Index;
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
