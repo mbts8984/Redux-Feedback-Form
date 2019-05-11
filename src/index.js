@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
@@ -10,12 +10,28 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
 
+class Index extends Component {
+    state = {
+        feedback: {
+            feelings: '',
+            understanding: '',
+            support: '',
+            comments: ''
+        }
+    }
+}
 
 // Feedback reducer. Being called from each step in the feedback form
 const feedbackReducer = (state={}, action) => {
    if (action.type === `SET_FEELINGS`){
-       console.log('made it to feedback reducer in setfeelings')
-   }
+       console.log('made it to feedback reducer in setfeelings');
+       return [state, action.payload]
+    }
+   else if (action.type === `SET_UNDERSTANDING`) {
+       console.log('made it to fdbkrdcr in understanding');
+       return [state, action.payload]
+   }  
+       
     return state;
 }
 
@@ -27,6 +43,7 @@ const storeInstance = createStore(
     applyMiddleware(logger),
 );
 
+export default Index;
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
