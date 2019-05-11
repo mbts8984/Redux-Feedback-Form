@@ -20,7 +20,7 @@ export class Comments extends Component {
     handleCommentsSubmit = (event) => {
         event.preventDefault();
         console.log('submit clicked. In handleFeelingSubmit with value of: ', this.state.comments);
-        this.props.dispatch({ type: 'SET_COMMENTS', payload: this.state });
+        this.props.dispatch({ type: 'SET_COMMENTS', payload: this.state, name: 'comments' });
         this.props.history.push('/review')
     } //end handleFeelingSubmit
     

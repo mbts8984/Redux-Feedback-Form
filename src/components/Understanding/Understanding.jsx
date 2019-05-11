@@ -6,13 +6,13 @@ import { Button } from '@material-ui/core';
 export class Understanding extends Component {
    
     state = {
-        understanding: ''
+        understanding: 0
     }
    
     //handle change for understanding input
-    handleChangeFor = property => event => {
+    handleChangeFor = (event) => {
         this.setState({
-            [property]: event.target.value
+            understanding: event.target.value
         })
     } //end handleChangeFor
 
@@ -21,7 +21,7 @@ export class Understanding extends Component {
     handleUnderstandingSubmit = (event) => {
         event.preventDefault();
         console.log('submit clicked. In handleUnderstandingSubmit with value of: ', this.state.understanding);
-        this.props.dispatch({ type: 'SET_UNDERSTANDING', payload: this.state });
+        this.props.dispatch({ type: 'SET_UNDERSTANDING', payload: this.state, name: 'understanding' });
         this.props.history.push('/supportIn')
     } //end handleFeelingSubmit
 
@@ -34,7 +34,7 @@ export class Understanding extends Component {
                 <br />
                 <h5>Understanding?</h5>
                 <form onSubmit={this.handleUnderstandingSubmit}>
-                    <input type="number" placeholder="1-5" onChange={this.handleChangeFor('understanding')}></input>
+                    <input type="number" placeholder="1-5" onChange={this.handleChangeFor}></input>
                     <Button type="submit" variant="contained" color="primary">Submit</Button>
                 </form>
             </div>

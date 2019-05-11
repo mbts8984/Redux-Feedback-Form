@@ -5,12 +5,12 @@ import { Button } from '@material-ui/core';
 export class Feeling extends Component {
   
     state = {
-        feeling: ''
+        feelings: 0
     }
   //handle change for feeling input
-    handleChangeFor = property => event => {
+    handleChangeFor = (event) => {
         this.setState({
-            [property] : event.target.value
+            feelings : event.target.value
         })
     } //end handleChangeFor
   
@@ -18,8 +18,8 @@ export class Feeling extends Component {
 // moves to next page in feedback loop
     handleFeelingSubmit = (event) => {
       event.preventDefault(); 
-        console.log('submit clicked. In handleFeelingSubmit with value of: ', this.state.feeling);
-      this.props.dispatch({type: 'SET_FEELINGS', payload: this.state});
+        console.log('submit clicked. In handleFeelingSubmit with value of: ', this.state.feelings);
+      this.props.dispatch({ type: 'SET_FEELINGS', payload: this.state, name: 'feelings' });
         this.props.history.push('/understandingIn')
     } //end handleFeelingSubmit
   
@@ -32,7 +32,7 @@ export class Feeling extends Component {
             <br/>
             <h5>Feeling?</h5>
             <form onSubmit={this.handleFeelingSubmit}>
-                <input type="number" placeholder="1-5" onChange={this.handleChangeFor('feeling')}></input>
+                <input type="number" placeholder="1-5" onChange={this.handleChangeFor}></input>
                   <Button type="submit" variant="contained" color="primary">Submit</Button>
             </form>
         </div>

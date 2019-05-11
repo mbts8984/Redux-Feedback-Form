@@ -5,7 +5,7 @@ import { Button } from '@material-ui/core';
 export class Support extends Component {
     
     state = {
-        support: ''
+        support: 0
     }
     
     //handle change for support input
@@ -20,7 +20,7 @@ export class Support extends Component {
     handleSupportSubmit = (event) => {
       event.preventDefault(); 
         console.log('submit clicked. In handleSupportSubmit with value of: ', this.state.support);
-        this.props.dispatch({type: 'SET_SUPPORT', payload: this.state});
+        this.props.dispatch({ type: 'SET_SUPPORT', payload: this.state, name: 'support'});
         this.props.history.push('/commentsIn')
     } //end handleSupportSubmit
     
