@@ -14,7 +14,7 @@ export class Review extends Component {
         axios({
             method: 'POST',
             url: `/feedback`,
-            data: this.props.reduxState.feedBack
+            data: this.props.reduxState.feedbackReducer
         }).then((response) => {
             console.log('in POST request with: ', response);
             this.props.history.push('/success')
@@ -27,19 +27,21 @@ export class Review extends Component {
     
     render() {
         console.log('looking FOR ME:', this.props.reduxState.feedbackReducer.comments);
-        console.log('support stuff you asked for: ', this.props.reduxState.feedbackReducer.support.support );
+        console.log('support stuff you asked for: ', this.props.reduxState.feedbackReducer.support );
+        console.log('feelings stuff you asked for: ', this.props.reduxState.feedbackReducer.feelings)
+        
         let submitButton;
 
         if (
-            this.props.reduxState.feedbackReducer.feelings.feelings > 0
-            && this.props.reduxState.feedbackReducer.feelings.feelings <= 5
-            && this.props.reduxState.feedbackReducer.understanding.understanding > 0
-            && this.props.reduxState.feedbackReducer.understanding.understanding <= 5
-            && this.props.reduxState.feedbackReducer.support.support > 0
-            && this.props.reduxState.feedbackReducer.support.support <= 5
-            && this.props.reduxState.feedbackReducer.comments.comments !== ''
+            this.props.reduxState.feedbackReducer.feelings > 0
+            && this.props.reduxState.feedbackReducer.feelings <= 5
+            && this.props.reduxState.feedbackReducer.understanding > 0
+            && this.props.reduxState.feedbackReducer.understanding <= 5
+            && this.props.reduxState.feedbackReducer.support > 0
+            && this.props.reduxState.feedbackReducer.support <= 5
+            && this.props.reduxState.feedbackReducer.comments !== ''
         ) {
-            submitButton = <Button onClick={this.submitFeedback} variant="contained" color="primary">SUBMIT</Button>
+            submitButton = <Button onClick={this.submitFeedback} variant="contained" color="primary">Submit My Feedback</Button>
         } else {
             submitButton = <Tooltip title="Please make sure all sections are complete before submitting!" placement="bottom">
                 <span><Button variant="contained" color="primary"
@@ -54,10 +56,10 @@ export class Review extends Component {
 
             <div>
                 <ul>
-                    <li>Feelings: {this.props.reduxState.feedbackReducer.feelings.feelings} </li> 
-                    <li>Understanding: {this.props.reduxState.feedbackReducer.understanding.understanding}  </li>
-                    <li>Support: {this.props.reduxState.feedbackReducer.support.support}</li>
-                    <li>Comments: {this.props.reduxState.feedbackReducer.comments.comments}</li>
+                    <li>Feelings: {this.props.reduxState.feedbackReducer.feelings} </li> 
+                    <li>Understanding: {this.props.reduxState.feedbackReducer.understanding}  </li>
+                    <li>Support: {this.props.reduxState.feedbackReducer.support}</li>
+                    <li>Comments: {this.props.reduxState.feedbackReducer.comments}</li>
                 </ul>
                 {submitButton}
                 
