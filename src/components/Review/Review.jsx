@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Tooltip } from '@material-ui/core';
+import { Button, Tooltip, createMuiTheme } from '@material-ui/core';
+import './review.css';
 import { withRouter } from 'react-router';
 import axios from 'axios';
+
+// const theme = createMuiTheme({
+//     palette: {
+//         primary: deepPurple,
+//         secondary: {
+//             main: '#26c6da',
+//         },
+//     },
+// });
 
 
 export class Review extends Component {
@@ -49,13 +59,11 @@ export class Review extends Component {
                 </Tooltip>
         }
 
-        
-
-
         return (
 
             <div>
-                <ul>
+                <h1 className="revewHead">Review Your Feedback:</h1>
+                <ul className= "reviewList">
                     <li>Feelings: {this.props.reduxState.feedbackReducer.feelings} </li> 
                     <li>Understanding: {this.props.reduxState.feedbackReducer.understanding}  </li>
                     <li>Support: {this.props.reduxState.feedbackReducer.support}</li>

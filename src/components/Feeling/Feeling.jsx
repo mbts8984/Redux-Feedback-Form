@@ -17,7 +17,7 @@ export class Feeling extends Component {
 // handle submit. prevents reload of page logs click and feeling value, dispatches state to redux.
 // moves to next page in feedback loop
     handleFeelingSubmit = (event) => {
-      event.preventDefault(); 
+      //event.preventDefault(); 
         console.log('submit clicked. In handleFeelingSubmit with value of: ');
       //this.props.dispatch({ type: 'SET_FEELINGS', payload: this.state, name: 'feelings' });
         this.props.history.push('/understandingIn')
